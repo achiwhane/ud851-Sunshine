@@ -15,6 +15,10 @@
 -->
 <resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
 
+    <string name="weather_location_search">Input a location by name or ZIP code.</string>
+    <string name="weather_location_url">Your OpenWeatherMap url will show up here.</string>
+    <string name="weather_error">An error has occured</string>
+
     <!-- - - - - - - - - - - - - -->
     <!-- Used throughout Sunshine-->
     <!-- - - - - - - - - - - - - -->

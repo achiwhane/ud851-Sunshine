@@ -14,19 +14,57 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp"
+    >
 
-    <ScrollView
+    <EditText
+        android:id="@+id/weather_location_search"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="@string/weather_location_search"
+        android:textSize="22sp"/>
 
+    <TextView
+        android:id="@+id/weather_forcast_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:layout_marginTop="8dp"
+        android:text="@string/weather_location_url"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/tv_weather_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textSize="20sp"
+                android:visibility="visible"/>
+        </ScrollView>
+        
         <TextView
-            android:id="@+id/tv_weather_data"
+            android:id="@+id/weather_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:textSize="20sp" />
-    </ScrollView>
-</FrameLayout>
+            android:textSize="20sp"
+            android:visibility="invisible"
+            android:text="@string/weather_error"/>
+
+    </FrameLayout>
+
+</LinearLayout>
