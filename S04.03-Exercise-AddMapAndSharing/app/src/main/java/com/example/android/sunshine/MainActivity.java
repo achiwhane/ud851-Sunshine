@@ -215,14 +215,34 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_refresh) {
-            mForecastAdapter.setWeatherData(null);
-            loadWeatherData();
-            return true;
+        switch (id) {
+            case R.id.action_refresh:
+                mForecastAdapter.setWeatherData(null);
+                loadWeatherData();
+                return true;
+            case R.id.action_map:
+                launchMap();
+                break;
         }
 
-        // TODO (2) Launch the map when the map menu item is clicked
+        // DONE (2) Launch the map when the map menu item is clicked
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void launchMap() {
+        String location = "500 S State St, Ann Arbor, MI 48109";
+
+        Uri.Builder builder = new Uri.Builder();
+
+        Uri mapUri = builder.scheme("geo").path("0,0").appendQueryParameter("q", location).build();
+        Log.d(this.getClass().getSimpleName(), mapUri.toString());
+
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW);
+        mapIntent.setData(mapUri);
+
+        if (mapIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(mapIntent);
+        }
     }
 }
